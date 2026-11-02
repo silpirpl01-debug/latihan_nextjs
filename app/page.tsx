@@ -1,6 +1,12 @@
 import Link from "next/link";
 
 export default function Beranda() {
+  const events = [
+    { id: 1, nama: "Workshop Coding" },
+    { id: 2, nama: "Lomba Desain" },
+    { id: 3, nama: "Festival Musik" },
+  ];
+
   return (
     <section className="py-12 text-center">
       <h1 className="text-4xl font-bold">
@@ -10,6 +16,14 @@ export default function Beranda() {
       <p className="mt-3 text-slate-600">
         Workshop, lomba, musik, dan bazar. Pesan tiketnya di sini.
       </p>
+
+      <div className="mt-6">
+        {events.map((e) => (
+          <div key={e.id}>
+            <p>{e.nama}</p>
+          </div>
+        ))}
+      </div>
 
       <Link
         href="/event"
